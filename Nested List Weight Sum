@@ -1,0 +1,43 @@
+#include<bits/stdc++.h>
+#include<iostream>
+using namespace std;
+int main()
+{
+    string s;
+    char ch;
+    cin>>s;
+    int i,sum=0,coef=0,x;
+    for(i=0;i<s.size();i++)
+    {
+        if(s[i]=='[')
+        {
+            coef++;
+        }
+        else if(s[i]==']')
+        {
+            coef--;
+        }
+        else if(s[i]!=',')
+        {
+            if(s[i+1]==',' || s[i+1]==']')
+            {
+                x=10*x+int(s[i])-48;
+            }
+            else
+            {
+                while(s[i+1]!=',' && s[i+1]!=']' )
+                {
+                    x=10*x+int(s[i])-48;  
+                    i++;
+                }
+                if(s[i+1]==',' || s[i+1]==']')
+                {
+                    x=10*x+int(s[i])-48;
+                }
+            }
+            sum=sum+coef*x;
+            x=0;
+        }
+    }
+    cout<<sum;
+}
