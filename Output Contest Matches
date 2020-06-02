@@ -1,0 +1,8 @@
+n=int(input())
+l=list(range(1,n+1,1))
+while(len(l)>1):
+    x=len(l)//2
+    for i in range(x):
+        l[i]=(l[i],l[-1])
+        l.remove(l[-1])
+print(l[0])
