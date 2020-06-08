@@ -1,0 +1,25 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main() {
+  int n,a,i,j;
+  cin>>n>>a;
+  vector<int> c;
+  for(i=0;i<n;i++)
+  {
+	  cin>>j;
+	  c.push_back(j);
+  }
+  vector<int> dp(a+1,1e9);
+  dp[0] = 0;
+  for (int i = 1; i <= a; i++) 
+  {
+    for (int j = 0; j < n; j++) 
+	{
+      if (i-c[j] >= 0) 
+	  {
+		dp[i] = min(dp[i], dp[i-c[j]]+1);
+      }
+    }
+  }
+  cout << (dp[a] == 1e9 ? -1 : dp[a]) << endl;
+}
