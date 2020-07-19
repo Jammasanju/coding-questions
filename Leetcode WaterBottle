@@ -1,0 +1,14 @@
+class Solution {
+public:
+    int numWaterBottles(int a, int b) 
+    {
+        int s=0;
+        while(a>=b)
+        {
+            s=s+b;
+            a=a-b+1;
+        }
+        s=s+a;
+        return s;
+    }
+};
